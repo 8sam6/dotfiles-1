@@ -96,12 +96,13 @@ function prompt {
 	$hostName = [net.dns]::GetHostName().ToLower()
 	$shortPath = get-vimShortPath(get-location)
 
-	write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
+	# write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
 	write-host $hostName -noNewLine -foregroundColor $promptTheme.hostNameColor
 	write-host ' {' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-host $shortPath -noNewLine -foregroundColor $promptTheme.pathColor
 	write-host '}' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-vcsStatus # from posh-git, posh-hg and posh-svn
+	write-host ' $' -noNewLine -foregroundColor $promptTheme.hostNameColor
 	return ' '
 }
 

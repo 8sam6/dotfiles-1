@@ -7,6 +7,16 @@
 # Setup the $home directory correctly
 if (-not $global:home) { $global:home = (resolve-path ~) }
 
+set-alias ?: Invoke-Ternary -Option AllScope -Description "PSCX filter alias"
+filter Invoke-Ternary ([scriptblock]$decider, [scriptblock]$ifTrue, [scriptblock]$ifFalse) 
+{
+   if (&$decider) { 
+      &$ifTrue
+   } else { 
+      &$ifFalse 
+   }
+}
+
 # if (Test-Path variable:\hostinvocation) {
 # 	$FullPath=$hostinvocation.MyCommand.Path
 # }	Else {
@@ -24,16 +34,10 @@ $myModulePath = (join-path $scripts modules)
 $env:PSModulePath = $myModulePath + ";" + $env:PSModulePath
 
 # Load in support modules
-Import-Module "Pscx" -Arg (join-path $scripts Pscx.UserPreferences.ps1)
 # Import-Module "PowerTab" -ArgumentList (join-path $scripts PowerTabConfig.xml)
 Import-Module "Posh-Git"
-Import-Module "Posh-Hg"
-Import-Module "Posh-Svn"
-Import-Module "PSScheduledJob"
-
-# Install my custom types and formatters
-# Update-TypeData -PrependPath $scripts\MyTypes.ps1xml
-# Update-FormatData -PrependPath $scripts\MyFormats.ps1xml
+# Import-Module "Posh-Hg"
+# Import-Module "Posh-Svn"
 
 # Some helpers for working with the filesystem
 function remove-allChildItems([string] $glob) { remove-item -recurse -force $glob }
@@ -85,10 +89,10 @@ function get-isAdminUser() {
 }
 
 $global:promptTheme = @{
-	prefixColor = [ConsoleColor]::Cyan
+	prefixColor = [ConsoleColor]::Yellow
 	pathColor = [ConsoleColor]::Cyan
 	pathBracesColor = [ConsoleColor]::DarkCyan
-	hostNameColor = ?: { get-isAdminUser } { [ConsoleColor]::Red } { [ConsoleColor]::Green }
+	hostNameColor = (?: { get-isAdminUser } { [ConsoleColor]::Red } { [ConsoleColor]::Green })
 }
 
 function prompt {
@@ -98,11 +102,10 @@ function prompt {
 
 	# write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
 	write-host $hostName -noNewLine -foregroundColor $promptTheme.hostNameColor
-	write-host ' {' -noNewLine -foregroundColor $promptTheme.pathBracesColor
+	write-host ' | ' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-host $shortPath -noNewLine -foregroundColor $promptTheme.pathColor
-	write-host '}' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-vcsStatus # from posh-git, posh-hg and posh-svn
-	write-host ' $' -noNewLine -foregroundColor $promptTheme.hostNameColor
+	write-host ' $' -noNewLine -foregroundColor $promptTheme.prefixColor
 	return ' '
 }
 
@@ -118,6 +121,15 @@ $env:TERM = "msys"
 # Add PS1 scripts directory to path
 Add-PathVariable $scripts
 
-# Add Node.js directories to path
-Add-PathVariable $(join-path $env:ProgramFiles "nodejs")
-Add-PathVariable $(join-path $env:APPDATA "npm")
+# Add ST3 directories to path
+Set-Alias subl $(join-path $env:ProgramFiles "Sublime Text 3\sublime_text.exe")
+
+# Loading these modules are slow, defer it.
+Register-EngineEvent -SourceIdentifier ([Management.Automation.PsEngineEvent]::OnIdle) -MaxTriggerCount 1 -Action {
+	Import-Module "Pscx" -Arg (join-path $scripts Pscx.UserPreferences.ps1)
+	# Import-Module "PSScheduledJob"
+
+	Install my custom types and formatters
+	Update-TypeData -PrependPath $scripts\MyTypes.ps1xml
+	Update-FormatData -PrependPath $scripts\MyFormats.ps1xml
+} > $null

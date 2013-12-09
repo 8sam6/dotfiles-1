@@ -6,6 +6,7 @@
 	],
 	"installed_packages":
 	[
+		"AdvancedNewFile",
 		"LESS",
 		"LESS-build",
 		"PowerShell",

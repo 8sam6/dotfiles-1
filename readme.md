@@ -7,10 +7,10 @@ Belleve's dotfiles
  - 打开 `$profile` 并输入 `. ~/dotfiles/powershell/profile.ps1`
  - 强烈建议将 `$OutputEncoding` 定为 UTF-8。方法：`$OutputEncoding = New-Object -typename System.Text.UTF8Encoding`
 
- Conemu 设置
- -----------
- `conemu/` 目录安置了 Conemu 的设置。参阅[此处](https://code.google.com/p/conemu-maximus5/wiki/Settings?wl=en#Where_settings_are_stored)。
+Conemu 设置
+-----------
+`conemu/` 目录安置了 Conemu 的设置。参阅[此处](https://code.google.com/p/conemu-maximus5/wiki/Settings?wl=en#Where_settings_are_stored)。
 
- Git 设置
- -----------
- `.gitconfig` 中是 Git 的设置。内容甚少，因为我用的不算重度。
+Git 设置
+-----------
+`.gitconfig` 中是 Git 的设置。内容甚少，因为我用的不算重度。

@@ -1,41 +1,10 @@
 [user]
-	name = PProvost
-	email = peter@provost.org
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-[diff]
-	tool = p4merge
-[merge]
-	tool = p4merge
-[difftool "p4merge"]
-	cmd = "p4merge.exe $LOCAL $REMOTE"
-[mergetool "p4merge"]
-	cmd = "p4merge $BASE $LOCAL $REMOTE $MERGED"
-	trustExitCode = true
-	keepBackup = false
-[difftool "kdiff3"]
-	path = kdiff3.exe
-	keepBackup = false
-	trustExitCode = false
-[mergetool "kdiff3"]
-	path = kdiff3.exe
-	keepBackup = false
-	trustExitCode = false
+	name = Belleve Invis
+	email = be5invis@outlook.com
 [core]
-	editor = gvim.exe
-	autocrlf = true
-	excludesfile = ~/.gitignore
-[alias]
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	type = cat-file -t
-	dump = cat-file -p
+	editor = vim
+	autocrlf = false
 [push]
-	default = upstream
-[credential]
-	helper = !'C:\\Users\\Peterpr\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+	default = matching
+[alias]
+	lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all

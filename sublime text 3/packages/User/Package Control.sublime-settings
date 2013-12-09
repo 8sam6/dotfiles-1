@@ -1,0 +1,17 @@
+{
+	"auto_upgrade_last_run": 1366869187,
+	"channels":
+	[
+		"http://sublime.wbond.net/channel.json"
+	],
+	"installed_packages":
+	[
+		"LESS",
+		"LESS-build",
+		"PowerShell",
+		"Theme - Phoenix"
+	],
+	"repositories":
+	[
+	]
+}

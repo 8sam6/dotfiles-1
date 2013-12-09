@@ -14,3 +14,12 @@
 [submodule "powershell/modules/TabExpansionPlusPlus"]
 	path = powershell/modules/TabExpansionPlusPlus
 	url = https://github.com/lzybkr/TabExpansionPlusPlus.git
+[submodule "Sublime Text 3/Packages/BracketHighlighter"]
+	path = Sublime Text 3/Packages/BracketHighlighter
+	url = https://github.com/facelessuser/BracketHighlighter.git
+[submodule "Sublime Text 3/Packages/Sublime-AdvancedNewFile"]
+	path = Sublime Text 3/Packages/Sublime-AdvancedNewFile
+	url = https://github.com/skuroda/Sublime-AdvancedNewFile.git
+[submodule "sublime text 3/packages/Moescript"]
+	path = sublime text 3/packages/Moescript
+	url = https://github.com/be5invis/sublimetext-moescript

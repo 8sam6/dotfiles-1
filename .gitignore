@@ -1,5 +1,7 @@
 *.swp
 tags
 [Tt]humbs.db
-.vim/info/
-.vim/.netrwhist
+Sublime Text 3/Local/
+Sublime Text 3/Backup/
+*.cache
+*.last-run

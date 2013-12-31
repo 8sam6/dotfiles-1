@@ -1,4 +1,4 @@
-#
+﻿#
 # Profile.ps1 - main powershell profile script
 # 
 # Applies to all hosts, so only put things here that are global
@@ -89,10 +89,10 @@ function get-isAdminUser() {
 }
 
 $global:promptTheme = @{
-	prefixColor = [ConsoleColor]::Yellow
-	pathColor = [ConsoleColor]::Cyan
-	pathBracesColor = [ConsoleColor]::DarkCyan
-	hostNameColor = (?: { get-isAdminUser } { [ConsoleColor]::Red } { [ConsoleColor]::Green })
+	prefixColor = (?: { get-isAdminUser } { [ConsoleColor]::Red } { [ConsoleColor]::DarkGray })
+	pathColor = [ConsoleColor]::Green
+	pathBracesColor = [ConsoleColor]::DarkGray
+	hostNameColor = [ConsoleColor]::Yellow
 }
 
 function prompt {
@@ -101,11 +101,11 @@ function prompt {
 	$shortPath = get-vimShortPath(get-location)
 
 	# write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
-	write-host $hostName -noNewLine -foregroundColor $promptTheme.hostNameColor
-	write-host ' | ' -noNewLine -foregroundColor $promptTheme.pathBracesColor
+	# write-host $hostName -noNewLine -foregroundColor $promptTheme.hostNameColor
+	# write-host ' · ' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-host $shortPath -noNewLine -foregroundColor $promptTheme.pathColor
 	write-vcsStatus # from posh-git, posh-hg and posh-svn
-	write-host ' $' -noNewLine -foregroundColor $promptTheme.prefixColor
+	write-host ' λ' -noNewLine -foregroundColor $promptTheme.prefixColor
 	return ' '
 }
 

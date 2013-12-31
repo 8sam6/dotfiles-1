@@ -19,10 +19,10 @@
     CD_GetChildItem = $false          # Display the contents of new provider location after using 
                                       # cd (Set-LocationEx).  Mutually exclusive with CD_EchoNewLocation.
                                       
-    CD_EchoNewLocation = $false        # Display new provider location after using cd (Set-LocationEx).
+    CD_EchoNewLocation = $false       # Display new provider location after using cd (Set-LocationEx).
                                       # Mutually exclusive with CD_GetChildItem.
     
-    TextEditor = 'gvim.exe'        # Default text editor used by the Edit-File function
+    TextEditor = 'vim.exe'            # Default text editor used by the Edit-File function
     
     PromptTheme = 'Modern'            # Prompt string and window title updates.  To enable, first
                                       # set the ModulesToImport setting for Prompt below to $true.
@@ -44,7 +44,7 @@
                                       # using KB,MG,GB and TB units.
                                       
 	ModulesToImport = @{
-		CD                = $false
+		CD                = $true
 		DirectoryServices = $true
 		FileSystem        = $true
 		GetChildItem      = $false    # Disabled by default because it handles only the CodeSigningCert dynamic parameters. Adds ContainerOnly and LeafOnly parameters.

@@ -1,23 +1,118 @@
-﻿<Types>
-  <Type>
-    <Name>System.DateTime</Name>
-    <TypeConverter>
-      <TypeName>Pscx.TypeConverters.WmiDateTimeTypeConverter</TypeName>
-    </TypeConverter>
-  </Type>
-
-  <Type>
-    <Name>System.TimeSpan</Name>
-    <TypeConverter>
-      <TypeName>Pscx.TypeConverters.WmiDateTimeTypeConverter</TypeName>
-    </TypeConverter>
-  </Type>
-</Types>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <Controls>
+    <Control>
+      <Name>ParameterGroupingFormat</Name>
+      <CustomControl>
+        <CustomEntries>
+          <CustomEntry>
+            <CustomItem>
+              <Frame>
+                <LeftIndent>4</LeftIndent>
+                <CustomItem>
+                  <Text>Command: </Text>
+                  <ExpressionBinding>
+                    <ScriptBlock>"{0}/{1}" -f $(if($_.command.ModuleName){$_.command.ModuleName}else{$_.Command.CommandType.ToString()+":"}),$_.command.Name</ScriptBlock>
+                  </ExpressionBinding>
+                  <NewLine/>
+                  <Text>Set:    </Text>
+                  <ExpressionBinding>
+                    <ScriptBlock>"$(if($_.ParameterSet -eq "__AllParameterSets"){"Default"}else{$_.ParameterSet})" + "$(if($_.ParameterSet.IsDefault){" *"})"</ScriptBlock>
+                  </ExpressionBinding>
+                  <NewLine/>
+                </CustomItem>
+              </Frame>
+            </CustomItem>
+          </CustomEntry>
+        </CustomEntries>
+      </CustomControl>
+    </Control>
+  </Controls>
+  <ViewDefinitions>
+    <View>
+      <Name>ParameterMetadataEx</Name>
+      <ViewSelectedBy>
+        <TypeName>System.Management.Automation.ParameterMetadataEx</TypeName>
+      </ViewSelectedBy>
+      <GroupBy>
+        <PropertyName>ParameterSet</PropertyName>
+        <CustomControlName>ParameterGroupingFormat</CustomControlName>
+      </GroupBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Name</Label>
+            <Width>22</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Aliases</Label>
+            <Width>12</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Position</Label>
+            <Width>8</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Mandatory</Label>
+            <Width>9</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Pipeline</Label>
+            <Width>8</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>ByName</Label>
+            <Width>6</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Provider</Label>
+            <Width>15</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Type</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>Name</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Aliases</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <!--PropertyName>Position</PropertyName-->
+                <ScriptBlock>if($_.Position -lt 0){"Named"}else{$_.Position}</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Mandatory</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>ValueFromPipeline</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>ValueFromPipelineByPropertyName</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <!--PropertyName>Provider</PropertyName-->
+                <ScriptBlock>if($_.Provider){$_.Provider}else{"All"}</ScriptBlock>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Type</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>
 <!-- SIG # Begin signature block -->
 <!-- MIIfUwYJKoZIhvcNAQcCoIIfRDCCH0ACAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB -->
 <!-- gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR -->
-<!-- AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUMcpj6QM1FjhxfTxP4zrLsCHv -->
-<!-- xvqgghqFMIIGajCCBVKgAwIBAgIQA5/t7ct5W43tMgyJGfA2iTANBgkqhkiG9w0B -->
+<!-- AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUhR74drE6yyl/4wCZYVJ13HRe -->
+<!-- 56mgghqFMIIGajCCBVKgAwIBAgIQA5/t7ct5W43tMgyJGfA2iTANBgkqhkiG9w0B -->
 <!-- AQUFADBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD -->
 <!-- VQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBBc3N1cmVk -->
 <!-- IElEIENBLTEwHhcNMTMwNTIxMDAwMDAwWhcNMTQwNjA0MDAwMDAwWjBHMQswCQYD -->
@@ -163,23 +258,23 @@
 <!-- Z2ljZXJ0LmNvbTEuMCwGA1UEAxMlRGlnaUNlcnQgQXNzdXJlZCBJRCBDb2RlIFNp -->
 <!-- Z25pbmcgQ0EtMQIQCt5a3rIU5HYOFJEEvbnHnDAJBgUrDgMCGgUAoHgwGAYKKwYB -->
 <!-- BAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAc -->
-<!-- BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUnPF3 -->
-<!-- czzv3G6TvwJJwjrHmu13NYIwDQYJKoZIhvcNAQEBBQAEggEASI4XR1ZZ8oiJkZtL -->
-<!-- fxLECAdUV8S+B7Q7ZdGYVhwKPhvtJoECtYI7WoOU6mH1M3p3tCYpZgqMnZY6wZqY -->
-<!-- 0Lqr6gtVixqgFpIh0BpH5yufyIXGbQonBsXMQUF6LnBCuh/6D0oF1O1fkzrp0BKi -->
-<!-- xyjUJs+bicMISxpDLEDvrUcfUOn/E38ovsH0XwQ3rVZMbEiwLS9fZwr95WA7bxxF -->
-<!-- Sezcyw79mPe0n4SzTLMATpdXmGZtj8OERVrBjBbwwr/gNIe8mURovC0ll3EWiD3u -->
-<!-- XpHPOacSj8HbkkOHXrVkJ8f0grMbJAy26g17ltL+PUU88RghKh+phbFFl/ZAyA4V -->
-<!-- vELChqGCAg8wggILBgkqhkiG9w0BCQYxggH8MIIB+AIBATB2MGIxCzAJBgNVBAYT -->
+<!-- BgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUPi7q -->
+<!-- kDzrHMEsQN5KLywb+aH6DnQwDQYJKoZIhvcNAQEBBQAEggEAePmzkdKYKoYQUzVS -->
+<!-- iY82vLPpzsOJk1w3g0MfSyt7czIJVuSenfyDbvZjjZGBvo0odbZpPonYLpiHfmW/ -->
+<!-- KXl1qIhaGajLey6fDNZE/RwArzBPfHale7C5v01U+tazfN+NOo4gyP3uvix0ICcB -->
+<!-- iNe4APu7cjOhOwcMkjuVDm2r4NgNBr3bsrcz4FH/epdxoNt1xYJ5+SfFYZ4OL9E6 -->
+<!-- MwgwlC5k1FzRtk7lXR+Q+9i6vGXr7Z5HnABa+Z2jy4oqOXdw7pooMoJFya0WaoCL -->
+<!-- tZGBweXo54wCiUHF+W3WcwNboFBmnu6bJLfeXlFOStCXLR+we1u6ozJGIX9mK9bc -->
+<!-- OMHwiKGCAg8wggILBgkqhkiG9w0BCQYxggH8MIIB+AIBATB2MGIxCzAJBgNVBAYT -->
 <!-- AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2Vy -->
 <!-- dC5jb20xITAfBgNVBAMTGERpZ2lDZXJ0IEFzc3VyZWQgSUQgQ0EtMQIQA5/t7ct5 -->
 <!-- W43tMgyJGfA2iTAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEH -->
-<!-- ATAcBgkqhkiG9w0BCQUxDxcNMTMxMDE3MTQyNzQxWjAjBgkqhkiG9w0BCQQxFgQU -->
-<!-- ckFn3HxbXYhR7MNkBEjES8Zf+tAwDQYJKoZIhvcNAQEBBQAEggEACnkMk5HhUnob -->
-<!-- idc9RQKnrt2cVIlIpgvsiYQVWscV0gKJhfekkaQmTqQQS+eejABQVMn/ndNqGWHC -->
-<!-- fht/NX9ywLUClvGow0nJH4k+L2Hr5+tAKV5pUQFr/uF183zeFSYWzfK/9TmhAsRw -->
-<!-- nMW7k6EI/stutK+kFjtbMWz5A99JUSWWSgWcBo4TNF4vuqtJsD8wJgZUpEyqDawN -->
-<!-- 7AMLiLsfEo3KdWL41w1csBhig7gJI7RHJY0MBPZKQYO55bvatv41HNroOPBazJUq -->
-<!-- cIiIlsBfGzw6st2Ghexx3RZnqWODvkgi9/DN3Kb31sQJk/yA/GNYsPUy9M8t24Rc -->
-<!-- at9ek/zQLQ== -->
+<!-- ATAcBgkqhkiG9w0BCQUxDxcNMTMxMDE3MTQyNzQwWjAjBgkqhkiG9w0BCQQxFgQU -->
+<!-- N1Zcds8Hz4QpTCVggDDYOSX8rNMwDQYJKoZIhvcNAQEBBQAEggEAqcNFB2JH/xF5 -->
+<!-- /R4Nbos/qeZco4YXdgGjgUVFmzMWY2cWkdfPR2JIUW35C9Be4yqLl9jZn8Fpx0v5 -->
+<!-- aUKjKlHWz+gnR4KVY51B31PxgncTNxXTWksPJ2zI5lKQXq6pGIp+qhW1z1tFg4Ws -->
+<!-- fhMV/paIjG551M9Gku9TOwZG1glOc6WhZ9VvwGxdUjfwtv/Rhf8D24k9LV5gF9sd -->
+<!-- LDrQR0Cs9DeKQaiun5J7+Nm+P71Q1+QIpX9FzZyde2rlUPQRob2gxfRXtP6Gu2W2 -->
+<!-- R6jyt1g6PPUmr1q5/NdSA0/+6QVDQIE+kF3hQ7RsfhRQzg5E5D617z0qqzPCUw0i -->
+<!-- VbX8jNuu7g== -->
 <!-- SIG # End signature block -->

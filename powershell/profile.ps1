@@ -113,7 +113,7 @@ function prompt {
 $env:EDITOR = "gvim"
 $env:VISUAL = $env:EDITOR
 $env:GIT_EDITOR = $env:EDITOR
-$env:TERM = "msys"
+$env:TERM = "cygwin" # Set to cygwin to fix tmux via SSH
 
 # Global aliases
 . (join-path $scripts "Aliases.ps1")

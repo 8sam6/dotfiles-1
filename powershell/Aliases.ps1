@@ -10,6 +10,7 @@ set-alias set set-variableEx -force
 set-alias sudo Invoke-Elevated
 set-alias unset remove-variable
 set-alias whence get-commandInfoEx
+set-alias which get-command
 
 if (get-module psake) {
 	set-alias psake "$(split-path (get-module psake).Path)\psake.ps1"

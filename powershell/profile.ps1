@@ -75,12 +75,12 @@ $global:promptTheme = @{
 }
 
 function prompt {
-	$prefix = "ω "
+	$prefix = " ω "
 	$hostName = [net.dns]::GetHostName().ToLower()
 	$shortPath = (get-location)
 
-	write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
-	# write-host $hostName -noNewLine -foregroundColor $promptTheme.hostNameColor
+	write-host ([Environment]::UserName) -noNewLine -foregroundColor $promptTheme.hostNameColor
+    write-host $prefix -noNewLine -foregroundColor $promptTheme.prefixColor
 	# write-host ' · ' -noNewLine -foregroundColor $promptTheme.pathBracesColor
 	write-host $shortPath -noNewLine -foregroundColor $promptTheme.pathColor
 	write-vcsStatus # from posh-git, posh-hg and posh-svn

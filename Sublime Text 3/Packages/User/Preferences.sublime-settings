@@ -10,8 +10,8 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Vintage_custom"
+		"Vintage_custom",
+		"Vintage"
 	],
 	"line_padding_bottom": 3,
 	"line_padding_top": 3,
@@ -24,8 +24,7 @@
 	"phoenix_sidebar_tree_large": true,
 	"phoenix_solid_current_tab": true,
 	"phoenix_tabs_auto_width": true,
-	"soda_classic_tabs": true,
-	"soda_folder_icons": true,
 	"theme": "Phoenix Dark.sublime-theme",
-	"vintage_start_in_command_mode": true
+	"vintage_start_in_command_mode": true,
+	"word_wrap": true
 }

@@ -1,0 +1,96 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Youki
+scopeName: text.youki
+fileTypes: [yk]
+uuid: 79147902-5863-4619-a3db-277fad319b35
+repository:
+  invoke:
+    name: meta.youki.invoke
+    begin: \[
+    end: \]
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    patterns:
+    - include: '#invoke'
+    - include: '#verbatim'
+    - include: '#textblock'
+    - include: '#string'
+    - include: '#quotemark'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
+    - include: '#numeric'
+  textblock:
+    name: meta.youki.textblock
+    begin: \{
+    end: \}
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    patterns:
+    - include: '#invoke'
+    - include: '#verbatim'
+    - include: '#textblock'
+    - include: '#listmark'
+    - include: '#kinsokushori'
+    - include: '#intextbackslash'
+  verbatim:
+    name: meta.youki.verbatim
+    begin: '\{(=*):'
+    end: ':\1\}'
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    patterns:
+    - match: .
+      name: string.unquoted.verbatim.youki
+  listmark:
+    name: keyword.operator.listitem.youki
+    match: '^\s*[+\-]|::\s*$'
+  string:
+    name: string.quoted.double.youki
+    begin: '"'
+    end: '"'
+    patterns:
+    - match: '[^\r\n"\\]+'
+    - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])
+  keyword:
+    name: keyword.youki
+    match: '(?<=[\[\{\(\s'',])([\-_/+\.*<=>!?:$%_&~^@#]+|setf|lambda|marco|define-macro|define|do|return|begin|true|false|null|undefined|if|while|do-while|quote|quasiquote|unquote-splicing|unquote|cond|nothing)(?=[\]\}\)\s])'
+  libraryfunction:
+    name: support.function.youki
+    match: '(?<=[\[\{\(\s'',])((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure)(?=[\]\}\)\s])|(util|tags)(?=/))'
+  identifier:
+    name: variable.identifier.youki
+    match: '[a-zA-Z\-_+*<=>!?:$%_&~^@#][a-zA-Z0-9\-_+*<=>!?:$%_&~^@#]*'
+  quotemark:
+    name: string.operator.quoting.youki
+    match: '[''`,]'
+  partoperator:
+    name: keyword.operator.part.youki
+    match: '/'
+  numeric:
+    name: constant.numeric.youki
+    match: 0x[a-fA-F0-9]+|\d+(\.\d+)?([eE][+\-]?\d+)?
+  intextbackslash:
+    name: variable.parameter.intextbackslash.youki
+    match: '\\([a-zA-Z_$][a-zA-Z0-9_]*|[*:\[\]\{\}\\])'
+  kinsokushori:
+    # Add proper word wrap for Chinese and Japanese
+    match: '[$£¥‘“〈《「『【〔＄（［｛｢￡￥]*[あ-鿌][!%,.:;?¢°’”‰′″℃、。​々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ・ーヽヾ！％），．：；？］｝​｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ￠]*|——|……'
+    name: name.kinsokushori.youki
+
+patterns:
+- include: '#invoke'
+- include: '#verbatim'
+- include: '#textblock'
+- include: '#listmark'
+- include: '#kinsokushori'
+- include: '#intextbackslash'
+...

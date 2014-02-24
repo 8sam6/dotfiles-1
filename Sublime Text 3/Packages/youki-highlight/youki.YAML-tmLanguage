@@ -33,12 +33,21 @@ repository:
     endCaptures:
       '0': {'name': 'meta.tag.bracket.youki'}
     patterns:
+    - include: '#indentedVerbatimOp'
     - include: '#invoke'
     - include: '#verbatim'
     - include: '#textblock'
     - include: '#listmark'
     - include: '#kinsokushori'
     - include: '#intextbackslash'
+  indentedVerbatimOp:
+    name: meta.youki.invoke.indentedVerbatim
+    begin: '^([ \t]*)(?=(.*?)\|$)'
+    end: '^(?!\1[ \t])(?=[ \t]*\S)'
+    patterns:
+    - include: '#invoke'
+    - match: .*
+      name: string.unquoted.verbatim.youki
   verbatim:
     name: meta.youki.verbatim
     begin: '\{(=*):'
@@ -48,11 +57,11 @@ repository:
     endCaptures:
       '0': {'name': 'meta.tag.bracket.youki'}
     patterns:
-    - match: .
+    - match: .*
       name: string.unquoted.verbatim.youki
   listmark:
     name: keyword.operator.listitem.youki
-    match: '^\s*[+\-]|::\s*$'
+    match: '^\s*[+\-]|::?\s*$'
   string:
     name: string.quoted.double.youki
     begin: '"'
@@ -87,6 +96,7 @@ repository:
     name: name.kinsokushori.youki
 
 patterns:
+- include: '#indentedVerbatimOp'
 - include: '#invoke'
 - include: '#verbatim'
 - include: '#textblock'

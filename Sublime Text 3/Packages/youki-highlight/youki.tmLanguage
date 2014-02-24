@@ -12,6 +12,10 @@
 	<array>
 		<dict>
 			<key>include</key>
+			<string>#indentedVerbatimOp</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#invoke</string>
 		</dict>
 		<dict>
@@ -43,6 +47,48 @@
 			<string>[a-zA-Z\-_+*&lt;=&gt;!?:$%_&amp;~^@#][a-zA-Z0-9\-_+*&lt;=&gt;!?:$%_&amp;~^@#]*</string>
 			<key>name</key>
 			<string>variable.identifier.youki</string>
+		</dict>
+		<key>indentedVerbatim</key>
+		<dict>
+			<key>begin</key>
+			<string>\|$</string>
+			<key>contentName</key>
+			<string>string.unquoted.verbatim.youki</string>
+			<key>end</key>
+			<string>\Z</string>
+			<key>name</key>
+			<string>meta.youki.verbatim.indented</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>.</string>
+					<key>name</key>
+					<string>string.unquoted.verbatim.youki</string>
+				</dict>
+			</array>
+		</dict>
+		<key>indentedVerbatimOp</key>
+		<dict>
+			<key>begin</key>
+			<string>^([ \t]*)(?=(.*?)\|$)</string>
+			<key>end</key>
+			<string>^(?!\1[ \t])(?=[ \t]*\S)</string>
+			<key>name</key>
+			<string>meta.youki.invoke.indentedVerbatim</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#invoke</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>.*</string>
+					<key>name</key>
+					<string>string.unquoted.verbatim.youki</string>
+				</dict>
+			</array>
 		</dict>
 		<key>intextbackslash</key>
 		<dict>
@@ -143,7 +189,7 @@
 		<key>listmark</key>
 		<dict>
 			<key>match</key>
-			<string>^\s*[+\-]|::\s*$</string>
+			<string>^\s*[+\-]|::?\s*$</string>
 			<key>name</key>
 			<string>keyword.operator.listitem.youki</string>
 		</dict>
@@ -216,6 +262,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#indentedVerbatimOp</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#invoke</string>
 				</dict>
 				<dict>
@@ -268,7 +318,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>.</string>
+					<string>.*</string>
 					<key>name</key>
 					<string>string.unquoted.verbatim.youki</string>
 				</dict>

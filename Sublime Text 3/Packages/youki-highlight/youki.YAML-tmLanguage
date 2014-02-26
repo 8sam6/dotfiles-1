@@ -37,7 +37,8 @@ repository:
     - include: '#invoke'
     - include: '#verbatim'
     - include: '#textblock'
-    - include: '#listmark'
+    - include: '#codespan'
+    - include: '#intext'
     - include: '#kinsokushori'
     - include: '#intextbackslash'
   indentedVerbatimOp:
@@ -57,11 +58,22 @@ repository:
     endCaptures:
       '0': {'name': 'meta.tag.bracket.youki'}
     patterns:
-    - match: .*
+    - match: .
       name: string.unquoted.verbatim.youki
-  listmark:
-    name: keyword.operator.listitem.youki
-    match: '^\s*[+\-]|::?\s*$'
+  codespan:
+    name: meta.youki.codespan
+    begin: '(`+)'
+    end: '\1'
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.youki'}
+    patterns:
+    - match: .
+      name: string.unquoted.codespan.youki
+  intext:
+    name: keyword.operator.intext.youki
+    match: '^\s*[+\-#]|::?\s*$|\*'
   string:
     name: string.quoted.double.youki
     begin: '"'
@@ -89,7 +101,7 @@ repository:
     match: 0x[a-fA-F0-9]+|\d+(\.\d+)?([eE][+\-]?\d+)?
   intextbackslash:
     name: variable.parameter.intextbackslash.youki
-    match: '\\([a-zA-Z_$][a-zA-Z0-9_]*|[*:\[\]\{\}\\])'
+    match: '\\([a-zA-Z_$][a-zA-Z0-9_]*|[+\-#*=:\[\]\{\}\\])'
   kinsokushori:
     # Add proper word wrap for Chinese and Japanese
     match: '[$£¥‘“〈《「『【〔＄（［｛｢￡￥]*[あ-鿌][!%,.:;?¢°’”‰′″℃、。​々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ・ーヽヾ！％），．：；？］｝​｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ￠]*|——|……'
@@ -100,7 +112,8 @@ patterns:
 - include: '#invoke'
 - include: '#verbatim'
 - include: '#textblock'
-- include: '#listmark'
+- include: '#codespan'
+- include: '#intext'
 - include: '#kinsokushori'
 - include: '#intextbackslash'
 ...

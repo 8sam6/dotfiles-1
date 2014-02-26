@@ -28,7 +28,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#listmark</string>
+			<string>#codespan</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#intext</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -41,32 +45,46 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>identifier</key>
-		<dict>
-			<key>match</key>
-			<string>[a-zA-Z\-_+*&lt;=&gt;!?:$%_&amp;~^@#][a-zA-Z0-9\-_+*&lt;=&gt;!?:$%_&amp;~^@#]*</string>
-			<key>name</key>
-			<string>variable.identifier.youki</string>
-		</dict>
-		<key>indentedVerbatim</key>
+		<key>codespan</key>
 		<dict>
 			<key>begin</key>
-			<string>\|$</string>
-			<key>contentName</key>
-			<string>string.unquoted.verbatim.youki</string>
+			<string>(`+)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.bracket.youki</string>
+				</dict>
+			</dict>
 			<key>end</key>
-			<string>\Z</string>
+			<string>\1</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>meta.tag.bracket.youki</string>
+				</dict>
+			</dict>
 			<key>name</key>
-			<string>meta.youki.verbatim.indented</string>
+			<string>meta.youki.codespan</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
 					<string>.</string>
 					<key>name</key>
-					<string>string.unquoted.verbatim.youki</string>
+					<string>string.unquoted.codespan.youki</string>
 				</dict>
 			</array>
+		</dict>
+		<key>identifier</key>
+		<dict>
+			<key>match</key>
+			<string>[a-zA-Z\-_+*&lt;=&gt;!?:$%_&amp;~^@#][a-zA-Z0-9\-_+*&lt;=&gt;!?:$%_&amp;~^@#]*</string>
+			<key>name</key>
+			<string>variable.identifier.youki</string>
 		</dict>
 		<key>indentedVerbatimOp</key>
 		<dict>
@@ -90,10 +108,17 @@
 				</dict>
 			</array>
 		</dict>
+		<key>intext</key>
+		<dict>
+			<key>match</key>
+			<string>^\s*[+\-#]|::?\s*$|\*</string>
+			<key>name</key>
+			<string>keyword.operator.intext.youki</string>
+		</dict>
 		<key>intextbackslash</key>
 		<dict>
 			<key>match</key>
-			<string>\\([a-zA-Z_$][a-zA-Z0-9_]*|[*:\[\]\{\}\\])</string>
+			<string>\\([a-zA-Z_$][a-zA-Z0-9_]*|[+\-#*=:\[\]\{\}\\])</string>
 			<key>name</key>
 			<string>variable.parameter.intextbackslash.youki</string>
 		</dict>
@@ -186,13 +211,6 @@
 			<key>name</key>
 			<string>support.function.youki</string>
 		</dict>
-		<key>listmark</key>
-		<dict>
-			<key>match</key>
-			<string>^\s*[+\-]|::?\s*$</string>
-			<key>name</key>
-			<string>keyword.operator.listitem.youki</string>
-		</dict>
 		<key>numeric</key>
 		<dict>
 			<key>match</key>
@@ -278,7 +296,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#listmark</string>
+					<string>#codespan</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#intext</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -318,7 +340,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>.*</string>
+					<string>.</string>
 					<key>name</key>
 					<string>string.unquoted.verbatim.youki</string>
 				</dict>

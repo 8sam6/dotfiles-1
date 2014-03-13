@@ -11,6 +11,7 @@
 	"ignored_packages":
 	[
 		"Vintage",
+		"BracketHighlighter",
 		"Vintage_custom"
 	],
 	"line_padding_bottom": 3,

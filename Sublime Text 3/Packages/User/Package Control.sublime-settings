@@ -8,10 +8,12 @@
 	[
 		"AAAPackageDev",
 		"AdvancedNewFile",
+		"AutoHotkey",
 		"LESS",
 		"LESS-build",
 		"PEG.js",
 		"PowerShell",
+		"SublimeCodeIntel",
 		"Theme - Phoenix"
 	],
 	"repositories":

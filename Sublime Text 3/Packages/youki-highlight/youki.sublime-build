@@ -1,0 +1,8 @@
+{
+	"cmd": ["yki", "-f", "$file"],
+	"working_dir": "${project_path:${folder:${file_path}}}",
+	"selector": "text.youki",
+	"windows": {
+		"cmd": ["yki.cmd", "-f", "$file"]
+	}
+}

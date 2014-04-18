@@ -10,12 +10,12 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Vintage",
 		"BracketHighlighter",
-		"Vintage_custom",
-		"Vintage"
+		"Vintage_custom"
 	],
-	"line_padding_bottom": 3,
-	"line_padding_top": 3,
+	"line_padding_bottom": -1,
+	"line_padding_top": -1,
 	"overlay_scroll_bars": "enabled",
 	"phoenix_color_expanded_folder": true,
 	"phoenix_color_orange": true,

@@ -193,7 +193,7 @@
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\[\{\(\s',])([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#]+|setf|lambda|marco|define-macro|define|do|return|begin|true|false|null|undefined|if|while|do-while|quote|quasiquote|unquote-splicing|unquote|cond|nothing)(?=[\]\}\)\s])</string>
+			<string>(?&lt;=[\[\{\(\s',])([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#]+|setf|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|do-while|quote|quasiquote|unquote-splicing|unquote|cond|nothing|and|or|not|negate)(?=[\]\}\)\s])</string>
 			<key>name</key>
 			<string>keyword.youki</string>
 		</dict>
@@ -207,7 +207,7 @@
 		<key>libraryfunction</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\[\{\(\s',])((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure)(?=[\]\}\)\s])|(util|tags)(?=/))</string>
+			<string>(?&lt;=[\[\{\(\s',])((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub)(?=[\]\}\)\s])|(util|tags)(?=/))</string>
 			<key>name</key>
 			<string>support.function.youki</string>
 		</dict>

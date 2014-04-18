@@ -83,10 +83,10 @@ repository:
     - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])
   keyword:
     name: keyword.youki
-    match: '(?<=[\[\{\(\s'',])([\-_/+\.*<=>!?:$%_&~^@#]+|setf|lambda|marco|define-macro|define|do|return|begin|true|false|null|undefined|if|while|do-while|quote|quasiquote|unquote-splicing|unquote|cond|nothing)(?=[\]\}\)\s])'
+    match: '(?<=[\[\{\(\s'',])([\-_/+\.*<=>!?:$%_&~^@#]+|setf|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|do-while|quote|quasiquote|unquote-splicing|unquote|cond|nothing|and|or|not|negate)(?=[\]\}\)\s])'
   libraryfunction:
     name: support.function.youki
-    match: '(?<=[\[\{\(\s'',])((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure)(?=[\]\}\)\s])|(util|tags)(?=/))'
+    match: '(?<=[\[\{\(\s'',])((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub)(?=[\]\}\)\s])|(util|tags)(?=/))'
   identifier:
     name: variable.identifier.youki
     match: '[a-zA-Z\-_+*<=>!?:$%_&~^@#][a-zA-Z0-9\-_+*<=>!?:$%_&~^@#]*'

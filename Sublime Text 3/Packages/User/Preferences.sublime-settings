@@ -6,13 +6,13 @@
 	[
 		"directwrite"
 	],
-	"font_size": 14.0,
+	"font_size": 12,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Vintage",
 		"Vintage_custom",
-		"BracketHighlighter",
-		"Vintage"
+		"BracketHighlighter"
 	],
 	"line_padding_bottom": -1,
 	"line_padding_top": -1,

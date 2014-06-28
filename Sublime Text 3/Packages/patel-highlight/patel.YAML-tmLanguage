@@ -1,0 +1,110 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Patrisika Example Language
+scopeName: source.patel
+fileTypes: [patel]
+uuid: B000C57C-9D82-4E1A-BC91-13CA75788B52
+repository:
+  invoke:
+    name: meta.patel.invoke
+    begin: \[
+    end: \]
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    patterns:
+    - include: '#invoke'
+    - include: '#invoke2'
+    - include: '#array'
+    - include: '#string'
+    - include: '#numeric'
+    - include: '#quotemark'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
+  invoke2:
+    name: meta.patel.invoke2
+    begin: \(
+    end: \)
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    patterns:
+    - include: '#invoke'
+    - include: '#invoke2'
+    - include: '#array'
+    - include: '#string'
+    - include: '#numeric'
+    - include: '#quotemark'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
+  array:
+    name: meta.patel.array
+    begin: \{
+    end: \}
+    beginCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    endCaptures:
+      '0': {'name': 'meta.tag.bracket.patel'}
+    patterns:
+    - include: '#invoke'
+    - include: '#invoke2'
+    - include: '#array'
+    - include: '#string'
+    - include: '#numeric'
+    - include: '#quotemark'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
+  comment:
+    name: comment.singleline.patel
+    match: ';.*'
+  string:
+    name: string.quoted.double.patel
+    begin: '"'
+    end: '"'
+    patterns:
+    - match: '[^\r\n"\\]+'
+    - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])
+  keyword:
+    name: keyword.patel
+    match: '(?<=[\[\{\(\)\}\]\s'',]|^)([\-_/+\.*<=>!?:$%_&~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])'
+  libraryfunction:
+    name: support.function.patel
+    match: '(?<=[\[\{\(\)\}\]\s'',]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))'
+  identifier:
+    name: variable.identifier.patel
+    match: '[a-zA-Z\-_+*<=>!?:$%_&~^@#][a-zA-Z0-9\-_+*<=>!?:$%_&~^@#]*'
+  quotemark:
+    name: string.operator.quoting.patel
+    match: '[''`,]'
+  partoperator:
+    name: keyword.operator.part.patel
+    match: '/'
+  numeric:
+    name: constant.numeric.patel
+    match: 0x[a-fA-F0-9]+|\d+(\.\d+)?([eE][+\-]?\d+)?
+  intextbackslash:
+    name: variable.parameter.intextbackslash.patel
+    match: '\\([a-zA-Z_$][a-zA-Z0-9_]*|[+\-#*=:\[\]\{\}\\])'
+
+patterns:
+- include: '#invoke'
+- include: '#invoke2'
+- include: '#array'
+- include: '#string'
+- include: '#numeric'
+- include: '#quotemark'
+- include: '#keyword'
+- include: '#libraryfunction'
+- include: '#partoperator'
+- include: '#identifier'
+- include: '#comment'
+
+...

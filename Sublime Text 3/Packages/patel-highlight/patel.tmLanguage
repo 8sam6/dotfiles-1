@@ -28,6 +28,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#singlestring</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#numeric</string>
 		</dict>
 		<dict>
@@ -98,6 +102,10 @@
 				<dict>
 					<key>include</key>
 					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#singlestring</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -190,6 +198,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#singlestring</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#numeric</string>
 				</dict>
 				<dict>
@@ -258,6 +270,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#singlestring</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#numeric</string>
 				</dict>
 				<dict>
@@ -285,14 +301,14 @@
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\[\{\(\)\}\]\s',]|^)([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])</string>
+			<string>(?&lt;=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])</string>
 			<key>name</key>
 			<string>keyword.patel</string>
 		</dict>
 		<key>libraryfunction</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\[\{\(\)\}\]\s',]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))</string>
+			<string>(?&lt;=[\[\{\(\)\}\]\s,]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))</string>
 			<key>name</key>
 			<string>support.function.patel</string>
 		</dict>
@@ -313,9 +329,29 @@
 		<key>quotemark</key>
 		<dict>
 			<key>match</key>
-			<string>['`,]</string>
+			<string>[\.`,]</string>
 			<key>name</key>
 			<string>string.operator.quoting.patel</string>
+		</dict>
+		<key>singlestring</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single.patel</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[^']+</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>''</string>
+				</dict>
+			</array>
 		</dict>
 		<key>string</key>
 		<dict>

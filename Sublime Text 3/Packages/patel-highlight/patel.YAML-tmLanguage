@@ -18,6 +18,7 @@ repository:
     - include: '#invoke2'
     - include: '#array'
     - include: '#string'
+    - include: '#singlestring'
     - include: '#numeric'
     - include: '#quotemark'
     - include: '#keyword'
@@ -37,6 +38,7 @@ repository:
     - include: '#invoke2'
     - include: '#array'
     - include: '#string'
+    - include: '#singlestring'
     - include: '#numeric'
     - include: '#quotemark'
     - include: '#keyword'
@@ -56,6 +58,7 @@ repository:
     - include: '#invoke2'
     - include: '#array'
     - include: '#string'
+    - include: '#singlestring'
     - include: '#numeric'
     - include: '#quotemark'
     - include: '#keyword'
@@ -72,18 +75,25 @@ repository:
     patterns:
     - match: '[^\r\n"\\]+'
     - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])
+  singlestring:
+    name: string.quoted.single.patel
+    begin: ''''
+    end: ''''
+    patterns:
+    - match: '[^'']+'
+    - match: ''''''
   keyword:
     name: keyword.patel
-    match: '(?<=[\[\{\(\)\}\]\s'',]|^)([\-_/+\.*<=>!?:$%_&~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])'
+    match: '(?<=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*<=>!?:$%_&~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])'
   libraryfunction:
     name: support.function.patel
-    match: '(?<=[\[\{\(\)\}\]\s'',]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))'
+    match: '(?<=[\[\{\(\)\}\]\s,]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))'
   identifier:
     name: variable.identifier.patel
     match: '[a-zA-Z\-_+*<=>!?:$%_&~^@#][a-zA-Z0-9\-_+*<=>!?:$%_&~^@#]*'
   quotemark:
     name: string.operator.quoting.patel
-    match: '[''`,]'
+    match: '[\.`,]'
   partoperator:
     name: keyword.operator.part.patel
     match: '/'
@@ -99,6 +109,7 @@ patterns:
 - include: '#invoke2'
 - include: '#array'
 - include: '#string'
+- include: '#singlestring'
 - include: '#numeric'
 - include: '#quotemark'
 - include: '#keyword'

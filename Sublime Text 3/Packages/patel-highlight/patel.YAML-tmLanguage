@@ -84,7 +84,7 @@ repository:
     - match: ''''''
   keyword:
     name: keyword.patel
-    match: '(?<=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*<=>!?:$%_&~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])'
+    match: '(?<=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*<=>!?:$%_&~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])'
   libraryfunction:
     name: support.function.patel
     match: '(?<=[\[\{\(\)\}\]\s,]|^)((evaluate-in-scope|evaluate-here|evaluate|load-library|invoke|object|part|setpart|derive|closure|apply|export|cons|map|slice|regex|ssub|and|or|not|negate)(?=[\]\}\)\s])|(util|tags)(?=/))'

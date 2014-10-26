@@ -301,7 +301,7 @@
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|setlocal|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])</string>
+			<string>(?&lt;=[\[\{\(\)\}\]\s,]|^)([\-_/+\.*&lt;=&gt;!?:$%_&amp;~^@#|]+|lambda|macro|define-macro|define|do|return|begin|true|false|null|undefined|if|while|piecewise|match|nothing|set|local|inc|dec|foreach|for)(?=[\{\[\(\]\}\)\s])</string>
 			<key>name</key>
 			<string>keyword.patel</string>
 		</dict>

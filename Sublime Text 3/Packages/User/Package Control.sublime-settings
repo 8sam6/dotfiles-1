@@ -11,7 +11,6 @@
 		"AutoHotkey",
 		"Clickable URLs",
 		"ConvertToUTF8",
-		"GitGutter",
 		"Gitignore",
 		"IMESupport",
 		"LESS",
@@ -22,6 +21,7 @@
 		"SideBarEnhancements",
 		"smart less build",
 		"SublimeCodeIntel",
+		"Theme - Afterglow",
 		"Theme - Phoenix"
 	],
 	"repositories":

@@ -1,7 +1,8 @@
 {
 	"caret_style": "phase",
-	"color_scheme": "Packages/Color - Railgun/Railgun.tmTheme",
-	"font_face": "Sayo UV Mono BG",
+	"color_inactive_tabs": true,
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"font_face": "Sayo UV Mono HG",
 	"font_options":
 	[
 		"directwrite"
@@ -11,21 +12,14 @@
 	"ignored_packages":
 	[
 		"Vintage",
-		"Vintage_custom",
-		"BracketHighlighter"
+		"Vintage_custom"
 	],
 	"line_padding_bottom": -1,
 	"line_padding_top": -1,
 	"overlay_scroll_bars": "enabled",
-	"phoenix_color_expanded_folder": true,
-	"phoenix_color_orange": true,
-	"phoenix_dirty_bottom_bar": true,
-	"phoenix_dirty_bottom_bar_pink": true,
-	"phoenix_sidebar_font_xlarge": true,
-	"phoenix_sidebar_tree_large": true,
-	"phoenix_solid_current_tab": true,
-	"phoenix_tabs_auto_width": true,
-	"theme": "Phoenix Dark.sublime-theme",
+	"tabs_padding_medium": true,
+	"tabs_small": true,
+	"theme": "Afterglow.sublime-theme",
 	"vintage_start_in_command_mode": true,
 	"word_wrap": true
 }

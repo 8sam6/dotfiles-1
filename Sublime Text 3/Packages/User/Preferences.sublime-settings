@@ -8,7 +8,7 @@
 	[
 		"directwrite"
 	],
-	"font_size": 13,
+	"font_size": 12,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
@@ -18,7 +18,6 @@
 	"line_padding_bottom": -1,
 	"line_padding_top": -1,
 	"overlay_scroll_bars": "enabled",
-	"spacegray_tabs_font_large": true,
 	"spacegray_tabs_xlarge": true,
 	"tabs_padding_medium": true,
 	"tabs_small": true,

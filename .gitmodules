@@ -20,6 +20,3 @@
 [submodule "Sublime Text 3/Packages/Moescript"]
 	path = Sublime Text 3/Packages/Moescript
 	url = https://github.com/be5invis/sublimetext-moescript.git
-[submodule "Sublime Text 3/Packages/BracketHighlighter"]
-	path = Sublime Text 3/Packages/BracketHighlighter
-	url = https://github.com/facelessuser/BracketHighlighter.git

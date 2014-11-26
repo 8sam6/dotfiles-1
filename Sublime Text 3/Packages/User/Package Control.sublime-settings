@@ -9,7 +9,7 @@
 		"AAAPackageDev",
 		"AdvancedNewFile",
 		"AutoHotkey",
-		"Base16 Color Schemes",
+		"BracketHighlighter",
 		"Clickable URLs",
 		"ConvertToUTF8",
 		"Gitignore",
@@ -25,9 +25,6 @@
 		"SideBarEnhancements",
 		"smart less build",
 		"SublimeCodeIntel",
-		"Theme - Afterglow",
-		"Theme - Nexus",
-		"Theme - Phoenix",
 		"Theme - Spacegray"
 	],
 	"repositories":

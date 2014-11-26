@@ -1,7 +1,8 @@
 {
 	"caret_style": "phase",
 	"color_inactive_tabs": true,
-	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme": "Packages/Base16 Color Schemes/base16-tomorrow.dark.tmTheme",
+	"enable_tab_scrolling": false,
 	"font_face": "Sayo UV Mono HG",
 	"font_options":
 	[
@@ -17,9 +18,11 @@
 	"line_padding_bottom": -1,
 	"line_padding_top": -1,
 	"overlay_scroll_bars": "enabled",
+	"spacegray_tabs_font_large": true,
+	"spacegray_tabs_xlarge": true,
 	"tabs_padding_medium": true,
 	"tabs_small": true,
-	"theme": "Afterglow.sublime-theme",
+	"theme": "Spacegray Eighties.sublime-theme",
 	"vintage_start_in_command_mode": true,
 	"word_wrap": true
 }

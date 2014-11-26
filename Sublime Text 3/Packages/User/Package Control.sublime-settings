@@ -9,20 +9,26 @@
 		"AAAPackageDev",
 		"AdvancedNewFile",
 		"AutoHotkey",
+		"Base16 Color Schemes",
 		"Clickable URLs",
 		"ConvertToUTF8",
 		"Gitignore",
 		"IMESupport",
 		"LESS",
 		"LESS-build",
+		"Less2Css",
+		"lessc",
 		"PEG.js",
 		"PowerShell",
+		"Racket",
 		"Scheme",
 		"SideBarEnhancements",
 		"smart less build",
 		"SublimeCodeIntel",
 		"Theme - Afterglow",
-		"Theme - Phoenix"
+		"Theme - Nexus",
+		"Theme - Phoenix",
+		"Theme - Spacegray"
 	],
 	"repositories":
 	[

@@ -12,24 +12,21 @@
 		"AutoHotkey",
 		"BracketHighlighter",
 		"Clickable URLs",
-		"ConvertToUTF8",
 		"Diffy",
 		"ElasticTabstops",
-		"Gitignore",
+		"Emmet",
+		"EncodingHelper",
+		"GitGutter",
 		"HexViewer",
 		"IMESupport",
 		"LESS",
-		"LESS-build",
-		"Less2Css",
 		"lessc",
 		"PEG.js",
 		"PowerShell",
 		"Racket",
 		"Scheme",
 		"SideBarEnhancements",
-		"smart less build",
-		"SublimeCodeIntel",
-		"Theme - Spacegray"
+		"SublimeCodeIntel"
 	],
 	"repositories":
 	[

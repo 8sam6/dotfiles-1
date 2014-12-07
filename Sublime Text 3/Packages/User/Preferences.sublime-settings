@@ -1,7 +1,11 @@
 {
+	"always_show_minimap_viewport": true,
 	"caret_style": "phase",
 	"color_inactive_tabs": true,
-	"color_scheme": "Packages/Color - Railgun/Railgun.tmTheme",
+	"color_scheme": "Packages/Theme - Railgun/Railgun.tmTheme",
+	"contrasted_light_sidebar": true,
+	"contrasted_tabs": true,
+	"draw_minimap_border": false,
 	"enable_tab_scrolling": false,
 	"font_face": "Sayo UV Mono HG",
 	"font_options":
@@ -10,18 +14,19 @@
 	],
 	"font_size": 12,
 	"highlight_modified_tabs": true,
+	"icon_file_type_enable": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Vintage_custom"
+		"Vintage_custom",
+		"Vintage"
 	],
 	"line_padding_bottom": -1,
 	"line_padding_top": -1,
 	"overlay_scroll_bars": "enabled",
+	"spacefunk_folder_icons": true,
 	"spacegray_tabs_xlarge": true,
-	"tabs_padding_medium": true,
-	"tabs_small": true,
-	"theme": "Spacegray Eighties.sublime-theme",
+	"tabs_medium": true,
+	"theme": "Railgun.sublime-theme",
 	"vintage_start_in_command_mode": true,
 	"word_wrap": true
 }

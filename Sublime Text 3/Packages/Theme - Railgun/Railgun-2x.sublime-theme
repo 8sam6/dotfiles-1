@@ -1040,7 +1040,9 @@
     // Button labels
     {
         "class": "label_control",
-        "parents": [{"class": "button_control"}]
+        "parents": [{"class": "button_control"}],
+        "font.bold": true,
+        "color": [251,190,29] // 0C
     },
 
     //

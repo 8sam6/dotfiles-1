@@ -18,6 +18,8 @@ if (-not $global:home) { $global:home = (resolve-path ~) }
 $dotfiles = resolve-path ~/dotfiles/
 $scripts = join-path $dotfiles "powershell"
 
+$outputencoding = [System.Text.Encoding]::GetEncoding("utf-8")
+
 # Update module path to include mine
 $global:PSDefaultModulePath = $env:PSModulePath
 $myModulePath = (join-path $scripts modules)

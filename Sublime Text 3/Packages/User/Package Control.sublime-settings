@@ -4,6 +4,14 @@
 	[
 		"http://sublime.wbond.net/channel.json"
 	],
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"AAAPackageDev",
@@ -16,11 +24,13 @@
 		"ElasticTabstops",
 		"Emmet",
 		"EncodingHelper",
-		"GitGutter",
 		"HexViewer",
 		"IMESupport",
+		"Julia",
 		"LESS",
 		"lessc",
+		"Markdown Extended",
+		"Package Control",
 		"PEG.js",
 		"PowerShell",
 		"Racket",

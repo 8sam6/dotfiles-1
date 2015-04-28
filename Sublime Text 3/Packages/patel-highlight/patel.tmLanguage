@@ -215,6 +215,62 @@
 				</dict>
 			</array>
 		</dict>
+		<key>invokeinterpolate</key>
+		<dict>
+			<key>begin</key>
+			<string>\\\[</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>name</key>
+			<string>meta.patel.invoke.interpolated</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#invoke</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#structure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#singlestring</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#libraryfunction</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#partoperator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#identifier</string>
+				</dict>
+			</array>
+		</dict>
 		<key>keyword</key>
 		<dict>
 			<key>match</key>
@@ -278,8 +334,16 @@
 					<string>[^\r\n"\\]+</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#invokeinterpolate</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#structureinterpolate</string>
+				</dict>
+				<dict>
 					<key>match</key>
-					<string>\\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])</string>
+					<string>\\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu\(\[])</string>
 				</dict>
 			</array>
 		</dict>
@@ -307,6 +371,62 @@
 			</dict>
 			<key>name</key>
 			<string>meta.patel.structure</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#invoke</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#structure</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#singlestring</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keyword</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#libraryfunction</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#partoperator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#identifier</string>
+				</dict>
+			</array>
+		</dict>
+		<key>structureinterpolate</key>
+		<dict>
+			<key>begin</key>
+			<string>\\\(</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>meta.patel.invoke.interpolated</string>
 			<key>patterns</key>
 			<array>
 				<dict>

@@ -25,6 +25,23 @@ repository:
     - include: '#libraryfunction'
     - include: '#partoperator'
     - include: '#identifier'
+  
+  invokeinterpolate:
+    name: meta.patel.invoke.interpolated
+    begin: \\\[
+    end: \]
+    patterns:
+    - include: '#comment'
+    - include: '#invoke'
+    - include: '#structure'
+    - include: '#block'
+    - include: '#string'
+    - include: '#singlestring'
+    - include: '#numeric'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
 
   structure:
     name: meta.patel.structure
@@ -34,6 +51,23 @@ repository:
       '0': {'name': 'meta.tag.bracket.patel'}
     endCaptures:
       '0': {'name': 'meta.tag.bracket.patel'}
+    patterns:
+    - include: '#comment'
+    - include: '#invoke'
+    - include: '#structure'
+    - include: '#block'
+    - include: '#string'
+    - include: '#singlestring'
+    - include: '#numeric'
+    - include: '#keyword'
+    - include: '#libraryfunction'
+    - include: '#partoperator'
+    - include: '#identifier'
+
+  structureinterpolate:
+    name: meta.patel.invoke.interpolated
+    begin: \\\(
+    end: \)
     patterns:
     - include: '#comment'
     - include: '#invoke'
@@ -71,13 +105,17 @@ repository:
   comment:
     name: comment.singleline.patel
     match: '#.*'
+    
   string:
     name: string.quoted.double.patel
     begin: '"'
     end: '"'
     patterns:
     - match: '[^\r\n"\\]+'
-    - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu])
+    - include: '#invokeinterpolate'
+    - include: '#structureinterpolate'
+    - match: \\(u[a-fA-F0-9]{4}|\s+\\|[^\r\nu\(\[])
+
   singlestring:
     name: string.quoted.single.patel
     begin: ''''

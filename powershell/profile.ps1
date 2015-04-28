@@ -104,4 +104,7 @@ Add-PathVariable $scripts
 
 # Add ST3 directories to path
 Set-Alias subl $(join-path $env:ProgramFiles "Sublime Text 3\sublime_text.exe")
-$env:path += ';C:\Program Files (x86)\FontForgeBuilds\bin'
+
+# I use curl.exe and wget.exe instead of the alias 'curl'.
+remove-item alias:curl
+remove-item alias:wget
